@@ -7,4 +7,4 @@ include_directories(.)
 
 add_executable(htable
         table.c
-        table.h)
+        table.h test1.c test1.h)

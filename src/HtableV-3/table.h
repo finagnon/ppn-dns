@@ -1,18 +1,18 @@
 #ifndef __TABLE_H__
 #define __TABLE_H__
 #include <sys/types.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <time.h>
-#include <unistd.h>
-#include <string.h>
-#include <assert.h>
-/*#include <sys/socket.h>
+#include <sys/socket.h>
 #include <netdb.h>
-#include <sys/select.h>
-#include <netinet/in.h>
-*/
+#include <arpa/inet.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <assert.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <errno.h>
+#include <string.h>
+
 int TAILLE = 10;
 
 typedef unsigned int long htable_t;
@@ -33,7 +33,6 @@ typedef struct htable{
 }h_table;
 
 //int tabHeur[TAILLE];
-int tabHeur1[10];
 h_table table[10];
 h_table tab1[10];
 h_table tab2[10];
@@ -54,9 +53,9 @@ void init_val();//Initialisation of
 int h_set(hkey_t key, val_t val);//add anew table
 
 htable_t hash(hkey_t key);//creation of hash table, used implementation of python
-int generate_indix(h_table *htabl, int TAILLE);
+
 h_table key_val_delete(hkey_t key);//for delete the key with the value.
 h_table get_value(hkey_t key);//get key and value
-
+void addr_info(hkey_t key);
 
 #endif//__TABLE_H__
